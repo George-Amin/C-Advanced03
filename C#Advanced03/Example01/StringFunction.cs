@@ -11,13 +11,51 @@ namespace C_Advanced03.Example01
     {
         public static int GetCountOfUpperCaseChar(string? str)
         {
-            // function will return the counter of chars if upperCase
+            // "function will return the counter of chars if upperCase"
             int Counter = 0;
-            if (!string.IsNullOrWhiteSpace(str)) // without ! will retnr true if there is null or white Space
+            //if (LoweOrUpper)
+            //{
+                if (!string.IsNullOrWhiteSpace(str)) // without ! will return true if there is null or white Space
+                {
+                    for (int i = 0; i < str.Length; i++)
+                    {
+                        if (char.IsUpper(str[i]))
+                        {
+                            Counter++;
+                        }
+                    }
+
+                }
+            //}
+            //else
+            //{
+            //    if (!string.IsNullOrWhiteSpace(str)) // without ! will return true if there is null or white Space
+            //    {
+            //        for (int i = 0; i < str.Length; i++)
+            //        {
+            //            if (char.IsLower(str[i]))
+            //            {
+            //                Counter++;
+            //            }
+            //        }
+
+            //    }
+
+            //}
+            return Counter;
+        }
+
+        // need to make the delegate to refer to two functions
+
+        public static int GetCountOfLowerCaseChar(string? str)
+        {
+            // "function will return the counter of chars if upperCase"
+            int Counter = 0;
+            if (!string.IsNullOrWhiteSpace(str)) // without ! will return true if there is null or white Space
             {
                 for (int i = 0; i < str.Length; i++)
                 {
-                    if (char.IsUpper(str[i]))
+                    if (char.IsLower(str[i]))
                     {
                         Counter++;
                     }

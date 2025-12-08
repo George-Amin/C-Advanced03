@@ -10,26 +10,61 @@ namespace C_Advanced03
         //    Console.WriteLine("I am print method");
         //}
 
-
-        public delegate int StringFunc(string? s);   
+        // step 0 = defining a Delegate
+        public delegate int StringFuncDelegate(string? s);
+        // new delegate [Class]
+        //..reference from this delegate can refer to =>
+        // 1. one function or more [pointer To Function]
+        // 2. this function maybe static function or not static
+        // 3. but these function must be with the same signature of Delegate (parameter List - return Type)
 
         static void Main(string[] args)
         {
             #region Delegate
+            // delegate is class
             // ...use to 
-            // 1. Implement function programming  paradigm = make functoins return function or send function as a prametare in functions
-            // 2. Implement Event-Driven progamming Paradigm = Like a treger function when action fire the event will work
+            // 1. Implement function programming  paradigm = make functions return function or send function as a parameter in functions
+            // 2. Implement Event-Driven programming Paradigm = Like a trigger function when action fire the event will work
             //Print();
             //int x = Program.Print(); // Invalid
             //var x = Program.Print(); // Invalid
 
             #region EX01
-            //Console.WriteLine("Eter your Name");
+            //Console.WriteLine("Enter your Name");
             //string Name = Console.ReadLine();
             //string name ="GEORGE";
 
             //Console.WriteLine(StringFunction.GetCountOfUpperCaseChar(name));
 
+            // Step 1 = Declare for reference from delegate
+            StringFuncDelegate stringFunc; // default = null
+            // Step 2 = Initialize Reference  from delegate {Pointer To Function}
+            //stringFunc = new StringFuncDelegate(StringFunction.GetCountOfUpperCaseChar);
+
+            // syntax sugar
+            stringFunc = StringFunction.GetCountOfUpperCaseChar;
+            //Console.WriteLine(stringFunc);
+
+            // step 3 Use delegate
+            // use the Reference to Invoke [Call] the delegate 
+
+            int WhiteSpace = stringFunc.Invoke("   ");
+            int NameToCount = stringFunc.Invoke("GeorgeEE");
+            int NameToCount01 = stringFunc.Invoke("GeorgeEE");
+
+
+            //Console.WriteLine(WhiteSpace);
+            //Console.WriteLine(NameToCount);
+            //Console.WriteLine(NameToCount01);
+
+            // Make the delegate To refer to two functions 
+            //step1 declare the delegate
+            StringFuncDelegate stringLowerCase;
+            // step 3 initialize reference as a pointer to function
+            stringLowerCase = StringFunction.GetCountOfLowerCaseChar;
+            // step 4 invoke 
+            int CounterLowerCase = stringLowerCase.Invoke("goooG");
+            Console.WriteLine(CounterLowerCase);
 
 
             #endregion

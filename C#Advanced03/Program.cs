@@ -1,5 +1,6 @@
 ﻿using C_Advanced03.Example01;
 using C_Advanced03.Example02;
+using C_Advanced03.Examples03;
 using System.Diagnostics;
 
 namespace C_Advanced03
@@ -74,24 +75,32 @@ namespace C_Advanced03
 
             #region  EX02
 
-            int[] nums = { 10, 2, 5, 6, 82, 54 };
-            SotingAlgorithms<int>.BobbleSort(nums, SortingAscOrDesc.SortingAsc);
-            SortingAscOrDesc.PrintNums(nums);
+            //int[] nums = { 10, 2, 5, 6, 82, 54 };
+            //SotingAlgorithms<int>.BobbleSort(nums, SortingAscOrDesc.SortingAsc);
+            //SortingAscOrDesc.PrintNums(nums);
 
-            Console.WriteLine("/**********************************************/");
-            SotingAlgorithms<int>.BobbleSort(nums, SortingAscOrDesc.SortingDesc);
-            SortingAscOrDesc.PrintNums(nums);
+            //Console.WriteLine("/**********************************************/");
+            //SotingAlgorithms<int>.BobbleSort(nums, SortingAscOrDesc.SortingDesc);
+            //SortingAscOrDesc.PrintNums(nums);
 
 
             #region EX02 Generic delegate
-            string[] names = new string[] { "aaa", "cccc", "bbb" };
+            //string[] names = new string[] { "aaa", "cccc", "bbb" };
 
-            SotingAlgorithms<string>.BobbleSort(names, SortingAscOrDesc.SortingDesc);
-            SortingAscOrDesc.PrintNums<string>(names);
+            //SotingAlgorithms<string>.BobbleSort(names, SortingAscOrDesc.SortingDesc);
+            //SortingAscOrDesc.PrintNums<string>(names);
             #endregion
 
             #endregion
 
+
+            #region EX03
+
+            List<int> list = new List<int>() { 1, 2, 8, 6, 3, 74 };
+          List<int> result=  FilterLists.OddNums(list);
+            foreach (int i in result) { Console.WriteLine(i); }
+            //Console.WriteLine(FilterLists.OddNums(list).ToList());
+            #endregion
 
             #endregion
         }

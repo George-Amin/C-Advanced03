@@ -187,7 +187,44 @@ namespace C_Advanced03
             #endregion
 
 
+            #region Anonymous Methods
 
+
+            //inline Method without any giving name 
+
+            //Action<>
+            //() => for void
+            //Action ActionVoidReturn = delegate () { Console.WriteLine("Say ,Hi"); };
+            //ActionVoidReturn.Invoke();
+
+
+
+
+            Action<string?> action = delegate (string? name){ Console.WriteLine("Hi ," + name); };
+            action.Invoke("George");
+            Console.WriteLine(action);
+
+
+
+
+            //Func<int, string> Result = delegate (int numToString) { return numToString.ToString(); } ;
+            //string returnResult = Result.Invoke(120);
+            //Console.WriteLine(returnResult);
+
+            //Console.WriteLine(returnResult.GetType()); // System.String
+
+
+
+
+            //Predicate<int> numberToConvert = delegate (int numToCkeck) { return numToCkeck > 0; }; // inline method or anonymous
+            //bool Result = numberToConvert.Invoke(-1);
+            //Console.WriteLine(Result);
+            //bool Result1 = numberToConvert.Invoke(1);
+            //Console.WriteLine(Result1);
+
+
+
+            #endregion
 
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_Advanced03.Example02
 {
-    internal static class SortingAscOrDesc
+    public static class SortingAscOrDesc
 
     {
         public static bool SortingAsc(int x, int y)

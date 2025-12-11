@@ -1,7 +1,10 @@
 ﻿using C_Advanced03.Example01;
 using C_Advanced03.Example02;
 using C_Advanced03.Examples03;
+using System.Data;
 using System.Diagnostics;
+using System.Net.WebSockets;
+using System.Xml.Linq;
 
 namespace C_Advanced03
 {
@@ -96,13 +99,77 @@ namespace C_Advanced03
 
             #region EX03
 
-            List<int> list = new List<int>() { 1, 2, 8, 6, 3, 74 };
-          List<int> result=  FilterLists.OddNums(list);
-            foreach (int i in result) { Console.WriteLine(i); }
+            //List<int> list = new List<int>() { 1, 2, 8, 6, 3, 74 };
+            //List<int> result = FilterLists.OddNums(list);
+            //foreach (int i in result) { Console.WriteLine(i); }
             //Console.WriteLine(FilterLists.OddNums(list).ToList());
+
+            //  List<int> nums = Enumerable.Range(1, 100).ToList();
+
+            //List<int> oddNumbers = FilterLists.FindElements(nums, HelperCkeckConditions.CheckOddNums);
+
+            //foreach (int item in oddNumbers)
+            //{
+            //    Console.Write($"{item} ");
+            //}
+
+
+            //Console.WriteLine("\n-----------Even Numbers-------------");
+
+            //int[] oddNums = FilterLists<int>.FindElements(nums, HelperCkeckConditions.CheckEvenNums).ToArray();
+            //HelperCkeckConditions.Prin<int>(oddNums);
+
+            #region generic To get the even number or odd and get the string have more then 4 chars nad less then 4 chars 
+
+            //List<string> names = new List<string>()
+            //{
+            //    "Georege" , "Amin" , "AA" , "aaa"
+            //};
+
+            ////List<string> filterString = FilterLists<string>.FindElements(names, HelperCkeckConditions.CheckLessChars);
+            //List<string> filterString = FilterLists<string>.FindElements(names, HelperCkeckConditions.CheckMoreChars);
+
+            //HelperCkeckConditions.Print<string>(filterString.ToArray());
+
             #endregion
 
             #endregion
+
+
+
+
+            #endregion
+
+            #region Built In Delegates
+
+
+            #region Action<T>
+            // Action [Non - Generic] => Can refer To Functions take 0 parameter And Must be return void
+            // Action<T> Generic => Can be refer to function Take 1 - 16 parameter from any data type and must be return Void 
+
+
+
+
+            #endregion
+
+
+
+            #region Func<T,TResult>
+            // Func<T , TResult> Generic =>can refer to Function with 0 - 16 parameter from any data type  and return Generic dataType <out TResult>.
+            #endregion
+
+            #region Predicate<T>
+            //Predicate<T> => can refer to Function Take One parameter Only From Any Data Type And must be return boolean value
+            
+
+
+            #endregion
+
+
+
+            #endregion
+
+
         }
     }
 }

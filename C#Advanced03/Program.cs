@@ -1,4 +1,5 @@
-﻿using C_Advanced03.Example01;
+﻿using C_Advanced03.BuiltInDelegateExFile;
+using C_Advanced03.Example01;
 using C_Advanced03.Example02;
 using C_Advanced03.Examples03;
 using System.Data;
@@ -146,8 +147,15 @@ namespace C_Advanced03
             #region Action<T>
             // Action [Non - Generic] => Can refer To Functions take 0 parameter And Must be return void
             // Action<T> Generic => Can be refer to function Take 1 - 16 parameter from any data type and must be return Void 
+            // void return type
 
 
+            //Action ActionVoidReturn = BuiltInDalegate.PrintHi;
+            //ActionVoidReturn.Invoke();
+
+            //Action<string> action = BuiltInDalegate.SayHiToName;
+            //action.Invoke("George");
+            //Console.WriteLine(action);
 
 
             #endregion
@@ -156,18 +164,30 @@ namespace C_Advanced03
 
             #region Func<T,TResult>
             // Func<T , TResult> Generic =>can refer to Function with 0 - 16 parameter from any data type  and return Generic dataType <out TResult>.
+
+            //Func<int, string> Result = BuiltInDalegate.CastNumberToString;
+            //string returnResult = Result.Invoke(120);
+            //Console.WriteLine(returnResult);
+
+            //Console.WriteLine(returnResult.GetType()); // System.String
             #endregion
 
             #region Predicate<T>
             //Predicate<T> => can refer to Function Take One parameter Only From Any Data Type And must be return boolean value
-            
-
+            //Predicate<int> numberToConvert = BuiltInDalegate.CheckPositive;
+            //bool Result = numberToConvert.Invoke(-1);
+            //Console.WriteLine(Result);
+            //bool Result1 = numberToConvert.Invoke(1);
+            //Console.WriteLine(Result1);
 
             #endregion
 
 
 
             #endregion
+
+
+
 
 
         }

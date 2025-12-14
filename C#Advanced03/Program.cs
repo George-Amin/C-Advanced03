@@ -2,6 +2,7 @@
 using C_Advanced03.Example01;
 using C_Advanced03.Example02;
 using C_Advanced03.Examples03;
+using C_Advanced03.ListMethods;
 using System.Data;
 using System.Diagnostics;
 using System.Net.WebSockets;
@@ -101,13 +102,13 @@ namespace C_Advanced03
             #region EX03
 
             //List<int> list = new List<int>() { 1, 2, 8, 6, 3, 74 };
-            //List<int> result = FilterLists.OddNums(list);
+            //List<int> result = FilterLists<int>.FindElements(list);
             //foreach (int i in result) { Console.WriteLine(i); }
-            //Console.WriteLine(FilterLists.OddNums(list).ToList());
+            //Console.WriteLine(FilterLists<int>.FindElements(list).ToList());
 
-            //  List<int> nums = Enumerable.Range(1, 100).ToList();
+            //List<int> nums = Enumerable.Range(1, 100).ToList();
 
-            //List<int> oddNumbers = FilterLists.FindElements(nums, HelperCkeckConditions.CheckOddNums);
+            //List<int> oddNumbers = FilterLists<int>.FindElements(nums, HelperCkeckConditions.CheckOddNums);
 
             //foreach (int item in oddNumbers)
             //{
@@ -200,9 +201,9 @@ namespace C_Advanced03
 
 
 
-            Action<string?> action = delegate (string? name){ Console.WriteLine("Hi ," + name); };
-            action.Invoke("George");
-            Console.WriteLine(action);
+            //Action<string?> action = delegate (string? name) { Console.WriteLine("Hi ," + name); };
+            //action.Invoke("George");
+            //Console.WriteLine(action);
 
 
 
@@ -224,7 +225,160 @@ namespace C_Advanced03
 
 
 
+            #region Lambda Expression => ()
+
+
+            //Action SayHi = () => Console.WriteLine("Hi");
+            //SayHi.Invoke();
+            ////SayHi();
+
+            //Action<string> SayHiToName = (n) => Console.WriteLine($"Hi  ,{n}");
+            //SayHiToName.Invoke("George");
+
+            //SayHiToName("Georgeeee");
+
+
+            //Console.WriteLine(SayHi);
+
+            //Func<int, int, int> addNumbers = (a, b) => { return a + b; }; // <out int , in int , in int>
+
+            //int result = addNumbers.Invoke(5, 10);
+            //Console.WriteLine(result);
+
+            //Predicate<int> CheckOdd = (num) => num % 2 != 0;
+            //bool Result = CheckOdd.Invoke(5);
+
+            //Console.WriteLine(Result);
+
+
             #endregion
+
+
+            #endregion
+
+
+            #region List<> Methods
+
+            List<int> Numbers = new()
+            {
+               1,58,12,56,2,8,51,845,18485,51,5,18,52,11,1,-8
+            };
+
+            List<Employee> ListOfEmployees = new List<Employee>()
+            {
+                new Employee(){ Id=1, Name="George", Age=30},
+                new Employee(){ Id=2, Name="Amin", Age=25},
+                new Employee(){ Id=3, Name="Sara", Age=28},
+                new Employee(){ Id=4, Name="Lina", Age=22},
+                new Employee(){ Id=5, Name="Khalid", Age=35},
+            };
+
+            #region Exist()
+
+            //bool Result = Numbers.Exists(Even => Even % 2 == 0); // Like Searching if have any Element match the condition will Return true Else will be false     
+            //Console.WriteLine(Result);
+
+            #endregion
+
+            #region Find()
+            //int Result = Numbers.Find(n => n == 452); // return the first element that match the condition   if the element not found will return the default value of data type = 0 
+            //Console.WriteLine(Result);
+
+            #endregion
+
+
+            #region FindLast()
+
+            // int Result = Numbers.FindLast(n => n % 2 == 0); // 52 match the condition // return the last element that match the condition   if the element not found will return the default value of data type = 0 
+
+            #endregion
+
+            #region FindIndex()
+
+            //int Result = Numbers.FindIndex(n => n == 11); // return the index of the first element that matches the condition; if not found, return -1
+
+
+            #endregion
+
+            #region FindLastInxed()
+
+            //int Result = Numbers.FindLastIndex(n => n % 2 == 0);
+
+
+            #endregion
+
+            #region FindAll()
+            //List<int> OddNumbers = Numbers.FindAll(num => num%2 == 1);// return all element that match the condition as List<T> if not found will return empty list
+
+            //Console.WriteLine("Odd Numbers:-");
+            //foreach (var item in OddNumbers)
+            //{ 
+            //    Console.Write(item + " ");
+            //}
+            //List<int> EvenNumbers = Numbers.FindAll(num => num%2 == 0);// return all element that match the condition as List<T> if not found will return empty list
+            //Console.WriteLine("\nEven Numbers:-");
+            //foreach (var item in EvenNumbers)
+            //{ 
+            //    Console.Write(item + " ");
+            //}
+            #endregion
+
+            #region Foreach()
+            //Numbers.ForEach(n => Console.WriteLine(n)); // apply action on each element in the list return type is void
+
+            #endregion
+
+
+            #region Ex Employee List of methods
+
+            //foreach (var item in ListOfEmployees)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //emps.ForEach(e => Console.WriteLine(e)); //delegate=> action on each employee   
+
+            // make chage in foreach
+
+            //foreach (Employee item in ListOfEmployees)
+            //{
+            //    item.Id++;
+            //    Console.WriteLine(item.Id);
+            //}
+
+
+            //foreach (var i in ListOfEmployees)
+            //{
+
+            //    Console.WriteLine(i);
+            //}
+
+
+            #endregion
+
+            #region Remove() - RemoveAll()
+            //Numbers.Remove(845); // remove the first occurrence of the specified element from the list
+            //Numbers.Remove(18485); // remove the first occurrence of the specified element from the list
+            //HelperMethodsForList<int>.PrintIn(Numbers.ToArray());
+
+            //int Result = Numbers.RemoveAll(one => one == 1);
+            //////remove all occurrence that match the condition(any emelemnt == 1) => return number of removed elements
+            //Console.WriteLine(Result);// 2
+            //HelperMethodsForList<int>.PrintIn(Numbers.ToArray()); // make sure any 1 removed and make change in the original list
+           
+            
+            #endregion
+
+
+            #region TrueForAll()
+            bool allPositive = Numbers.TrueForAll(N => N > 0); // check if all elements match the condition; if all match, return true; else false  
+            Console.WriteLine(allPositive);
+            //False because -8 is in the list not match the condition
+            #endregion
+
+
+            #endregion
+
+
 
 
         }

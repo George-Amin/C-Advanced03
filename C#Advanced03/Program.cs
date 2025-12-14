@@ -2,6 +2,7 @@
 using C_Advanced03.Example01;
 using C_Advanced03.Example02;
 using C_Advanced03.Examples03;
+using C_Advanced03.function_Programming_Paradigm;
 using C_Advanced03.ListMethods;
 using System.Data;
 using System.Diagnostics;
@@ -364,14 +365,14 @@ namespace C_Advanced03
             //////remove all occurrence that match the condition(any emelemnt == 1) => return number of removed elements
             //Console.WriteLine(Result);// 2
             //HelperMethodsForList<int>.PrintIn(Numbers.ToArray()); // make sure any 1 removed and make change in the original list
-           
-            
+
+
             #endregion
 
 
             #region TrueForAll()
-            bool allPositive = Numbers.TrueForAll(N => N > 0); // check if all elements match the condition; if all match, return true; else false  
-            Console.WriteLine(allPositive);
+            //bool allPositive = Numbers.TrueForAll(N => N > 0); // check if all elements match the condition; if all match, return true; else false  
+            //Console.WriteLine(allPositive);
             //False because -8 is in the list not match the condition
             #endregion
 
@@ -379,7 +380,46 @@ namespace C_Advanced03
             #endregion
 
 
+            #region FPP
+            //char[] chars = { 'H', 'e', 'l', 'l', 'o' };
 
+            //string Word = FPPReturnDelegate.AddCharToString(chars);
+
+            //Console.WriteLine(Word.GetType());
+
+            //int zero = 0;
+            //bool Result = FPPReturnDelegate.IsPositive(zero);
+            //Console.WriteLine(Result);
+            //int number = 5;
+            //bool Result = FPPReturnDelegate.IsPositive(number);
+            //Console.WriteLine(Result);
+
+            //int negativeNumber = -3;
+            //bool Result = FPPReturnDelegate.IsPositive(negativeNumber);
+            //Console.WriteLine(Result);
+
+            //FPPReturnDelegate.SayHi();
+
+            #region Function return function
+
+            //Action a = FPPReturnDelegate.DelegateAction();// just calling it is not working
+            //..a is reference from delegate Action Name DelegateAction() function that return delegate Action
+            //a.Invoke(); // now it work because we call the returned delegate and invoke it
+
+            //Predicate<int> P = FPPReturnDelegate.DelegatePredicate();
+            //bool res = P.Invoke(-5); // false  
+            //Console.WriteLine(res);
+
+            //char[] chars = { 'W', 'o', 'r', 'l', 'd' };
+
+            //Func<char[], string> func = FPPReturnDelegate.DelegateFunc();
+            //string Result = func.Invoke(chars); // "World"  
+
+            //Console.WriteLine(Result);
+
+            #endregion
+
+            #endregion
 
         }
     }
